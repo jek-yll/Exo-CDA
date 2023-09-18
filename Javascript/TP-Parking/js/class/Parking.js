@@ -6,15 +6,23 @@ export class Parking {
     }
 
     addVehicule(immat) {
-        const newVehicule = new Vehicule(immat, Date())
+        const newVehicule = new Vehicule(immat, new Date())
         this.vehiculeList.push(newVehicule)
     }
 
-    paid() {
-
+    immatIsPresent(immat) {
+        return this.vehiculeList.some(vehicule => vehicule.immatriculation === immat);
     }
 
-    giveTicket () {
-
+    parkingTime(immat) {
+        const vehicule = this.vehiculeList.find(vehicule => vehicule.immatriculation === immat);
+        const today = new Date()
+        const dateArrival = new Date(vehicule.arrival)
+        if (vehicule) {
+            return (today-dateArrival)/60000
+        } else {
+            return console.log("Véhicule non trouvé");
+        }
     }
+
 } 

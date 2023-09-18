@@ -3,6 +3,4 @@ export class Vehicule {
         this.immatriculation = immatriculation
         this.arrival = arrival
     }
-
-
 }
