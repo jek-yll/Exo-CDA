@@ -1,4 +1,5 @@
 import { Vehicule } from "./Vehicule.js";
+import { History } from "./History.js";
 
 export class Parking {
     constructor() {

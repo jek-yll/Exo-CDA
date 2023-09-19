@@ -1,5 +1,5 @@
 export class Vehicule {
-    constructor (immatriculation, arrival){
+    constructor (immatriculation, arrival ){
         this.immatriculation = immatriculation
         this.arrival = arrival
     }

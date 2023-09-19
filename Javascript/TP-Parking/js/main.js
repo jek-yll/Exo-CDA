@@ -9,14 +9,21 @@ let parking = new Parking()
 
 parking.addFakeVehiculeWithFakeDate('xx-123-xx', new Date("2023-09-18T10:30:00"))
 parking.addFakeVehiculeWithFakeDate('yy-123-yy', new Date("2023-09-19T09:18:00"))
+parking.addFakeVehiculeWithFakeDate('bb-123-bb', new Date("2023-09-19T10:40:00"))
 
 /* VEHICULES DEJA PRESENT :
 xx-123-xx
 yy-123-yy
+bb-123-bb
+*/
+
+/* 
+    Ajout End Date
+    + Historisé 
 */
 
 function immatIsValid(input) {
-    let regex = /^[A-Z]{2}[-][0-9]{3}[-][A-Z]{2}$/i;
+    let regex = /^(?!.*[IOU])(?!.*SS)[A-Z]{2}-[0-9]{3}-[A-Z]{2}$/i;
     return regex.test(input);
 }
 
@@ -53,21 +60,26 @@ ticket.addEventListener ("click", () => {
 paid.addEventListener ("click", () => {
     if(parking.immatIsPresent(immatInput.value)){
         const parkingTime = parking.parkingTime(immatInput.value)
-        if (parkingTime > 45){
-            afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 6€`, 'alert-warning')
-            parking.vehiculeIsOut(immatInput.value)
-        } else if (parkingTime >= 30) {
-            afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 1.70€`, 'alert-warning')
-            parking.vehiculeIsOut(immatInput.value)
-        } else if (parkingTime >= 15) {
-            afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 1.30€`, 'alert-warning')
-            parking.vehiculeIsOut(immatInput.value)
-        } else {
-            afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 0.80€`, 'alert-warning')
-            parking.vehiculeIsOut(immatInput.value)
+        switch (true){
+            case parkingTime > 45 :
+                afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 6€`, 'alert-warning')
+                parking.vehiculeIsOut(immatInput.value)
+            break ;
+            case parkingTime >= 30 :
+                afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 6€`, 'alert-warning')
+                parking.vehiculeIsOut(immatInput.value)
+            break ;
+            case parkingTime >= 15 :
+                afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 1.30€`, 'alert-warning')
+                parking.vehiculeIsOut(immatInput.value)
+            break ;
+            default :
+                afficherAlert(`Le prix à payer pour le véhicule ${immatInput.value} est de 0.80€`, 'alert-warning')
+                parking.vehiculeIsOut(immatInput.value)
         }
     } else {
         afficherAlert(`Le véhicule ${immatInput.value} n'existe pas`, 'alert-danger')
     }
+    immatInput.value = ''
 })
 
