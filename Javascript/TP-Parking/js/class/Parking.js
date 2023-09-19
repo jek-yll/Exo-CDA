@@ -10,6 +10,11 @@ export class Parking {
         this.vehiculeList.push(newVehicule)
     }
 
+    addFakeVehiculeWithFakeDate(immat, fakeDate){
+        const newVehicule = new Vehicule(immat, fakeDate)
+        this.vehiculeList.push(newVehicule)
+    }
+
     immatIsPresent(immat) {
         return this.vehiculeList.some(vehicule => vehicule.immatriculation === immat);
     }
@@ -18,6 +23,7 @@ export class Parking {
         const vehicule = this.vehiculeList.find(vehicule => vehicule.immatriculation === immat);
         const today = new Date()
         const dateArrival = new Date(vehicule.arrival)
+        // let madate2 = new Date("2023-09-19T10:30:00")
         if (vehicule) {
             return (today-dateArrival)/60000
         } else {
@@ -25,4 +31,7 @@ export class Parking {
         }
     }
 
+    vehiculeIsOut(immat) {
+        this.vehiculeList = this.vehiculeList.filter(vehicule => vehicule.immatriculation !== immat)
+    }
 } 
