@@ -52,8 +52,6 @@ const display = (pokeUrl) => {
             pokeName.textContent = pokemon.name
             pokeHeight.textContent = pokemon.height
             pokeWeight.textContent = pokemon.weight
-    
-    
         }).catch(error => {
             // Gestion des erreurs
             console.error("une erreur : "+ error)
