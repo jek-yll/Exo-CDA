@@ -12,49 +12,46 @@
   <title>eContacts</title>
 </head>
 <body>
-  <!-- <div class="myModal" id="addContactModal">
-    <div class="myModal-content"> -->
-        <div class="container">
-
-            <div class="d-flex justify-content-between">
-              <h1>Add a Contact</h1>
-              <i class="bi bi-x" id="addContactClose" style="font-size: 2rem;"></i>
-            </div>
-            <hr>
-            <form id="formAddContact">
-              <div class="mb-3">
-                <label for="add-firstname" class="form-label">Firstname:</label>
-                <input type="text" id="add-firstname" name="add-firstname" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label for="add-lastname" class="form-label">Lastname:</label>
-                <input type="text" id="add-lastname" name="add-lastname" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label for="add-dateOfBirth" class="form-label">Date Of Birth:</label>
-                <input type="date" id="add-dateOfBirth" name="add-dateOfBirth" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label for="add-email" class="form-label">Email:</label>
-                <input type="email" id="add-email" name="add-email" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label for="add-phoneNumber" class="form-label">Phone number:</label>
-                <input type="text" id="add-phoneNumber" name="add-phoneNumber" class="form-control" required>
-              </div>
-              <div class="mb-3">
-                <label for="add-avatarURL" class="form-label">Avatar URL:</label>
-                <input type="text" id="add-avatarURL" name="add-avatarURL" class="form-control" required>
-              </div>
-              <div class="text-end">
-                <button class="btn btn-secondary" id="createContact"><i class="bi bi-send"></i> Send</button>
-              </div>
-            </form>
-   
-<!--     </div>
-  </div> -->
-  <!-- <div class="myModal" id="editContactModal">
-    <div class="myModal-content"> -->
+  <div class="myModal" id="addContactModal">
+    <div class="myModal-content">
+      <div class="d-flex justify-content-between">
+        <h1>Add a Contact</h1>
+        <i class="bi bi-x" id="addContactClose" style="font-size: 2rem;"></i>
+      </div>
+      <hr>
+      <form id="formAddContact">
+        <div class="mb-3">
+          <label for="add-firstname" class="form-label">Firstname:</label>
+          <input type="text" id="add-firstname" name="add-firstname" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="add-lastname" class="form-label">Lastname:</label>
+          <input type="text" id="add-lastname" name="add-lastname" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="add-dateOfBirth" class="form-label">Date Of Birth:</label>
+          <input type="date" id="add-dateOfBirth" name="add-dateOfBirth" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="add-email" class="form-label">Email:</label>
+          <input type="email" id="add-email" name="add-email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="add-phoneNumber" class="form-label">Phone number:</label>
+          <input type="text" id="add-phoneNumber" name="add-phoneNumber" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="add-avatarURL" class="form-label">Avatar URL:</label>
+          <input type="text" id="add-avatarURL" name="add-avatarURL" class="form-control" required>
+        </div>
+        <div class="text-end">
+          <button class="btn btn-secondary"><i class="bi bi-send"></i> Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="myModal" id="editContactModal">
+    <div class="myModal-content">
       <div class="d-flex justify-content-between">
         <h1>Add a Contact</h1>
         <i class="bi bi-x" id="editContactClose" style="font-size: 2rem;"></i>
@@ -90,8 +87,7 @@
         </div>
       </form>
     </div>
-    <!-- </div>
-  </div> -->
+  </div>
   <main class="container my-3">
     <div class="row g-3">
       <div class="col-4">
@@ -100,7 +96,7 @@
           <hr>
           <div class="d-flex flex-column" id="contactsContainer"></div>
           <hr>
-          <button id="btnAddContact" class="btn btn-success w-100" ><i class="bi bi-plus-circle"></i> Add</button>
+          <button id="btnAddContact" class="btn btn-success w-100"><i class="bi bi-plus-circle"></i> Add</button>
         </div>
       </div>
       <div class="col-8">

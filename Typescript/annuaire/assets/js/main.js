@@ -1,32 +1,10 @@
-import Person from "./classes/Person.js";
-let addContact = document.querySelector('#btnAddContact');
-let newContactFirstname = document.querySelector('#add-firstname');
-let newContactLastname = document.querySelector('#add-lastname');
-let newContactdateOfBirth = document.querySelector('#add-dateOfBirth');
-let newContactEmail = document.querySelector('#add-email');
-let newContactPhoneNumber = document.querySelector('#add-phoneNumber');
-let newContactAvatarUrl = document.querySelector('#add-avatarURL');
-let editContactFirstname = document.querySelector('#edit-firstname');
-let editContactLastname = document.querySelector('#edit-lastname');
-let editContactdateOfBirth = document.querySelector('#edit-dateOfBirth');
-let editContactEmail = document.querySelector('#edit-firstname');
-let editContactPhoneNumber = document.querySelector('#edit-firstname');
-let editContactAvatarUrl = document.querySelector('#edit-firstname');
-let sendBtn = document.querySelector('#createContact');
-let contactList = document.querySelector('#contactsContainer');
-let newContact;
-let contactArray = [];
-sendBtn.addEventListener("click", () => {
-    newContact = new Person(newContactFirstname.value, newContactLastname.value, newContactdateOfBirth.value, newContactEmail.value, newContactPhoneNumber.value, newContactAvatarUrl.value);
-    // console.log(newContact);
-    contactArray.push(newContact);
-    // console.table(contactArray);
-});
-function contactDisplay() {
-    contactArray.forEach((person) => document.createElement("button")
-    /*  `
-       <button data-id=${person.id} class="btn btn-success w-100" >${person.firstname} ${person.lastname} </button>
-       ` */
-    );
-}
-contactList.innerHTML += contactDisplay();
+import Contact from "./classes/Contact.js";
+const contacts = [
+    new Contact("Albert", "DUPONT", new Date("1985-10-25"), "a.dupont@example.com", "+33 123 456 789", ""),
+    new Contact("Hélène", "DUPONT", new Date("1988-06-27"), "h.dupont@example.com", "+33 147 654 852", ""),
+    new Contact("John", "SMITH", new Date("1992-04-14"), "j.smith@example.com", "+32 158 943 225", ""),
+    new Contact("Clara", "GOMEZ", new Date("1967-09-13"), "c.gomez@example.com", "+33 146 997 254", ""),
+    new Contact("Elizabeth", "MARTIN", new Date("1964-02-22"), "e.martin@example.com", "+33 119 788 254", "")
+];
+console.table(contacts);
+const contactsContainer = document.getElementById("contactsContainer");
