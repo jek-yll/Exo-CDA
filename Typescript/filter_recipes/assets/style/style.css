@@ -1,0 +1,26 @@
+img {
+    filter: invert(100%);
+    width: 18px;
+    height: 18px;
+}
+
+button:hover img{
+    filter: none;
+}
+
+.myModal {
+    z-index: 1;
+    display: none;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+  
+.myModal-content {
+    margin: 10% auto;
+    width: 80%;
+    border-radius: 1rem;
+    padding: 2rem;
+    background-color: white;
+}
