@@ -14,6 +14,7 @@ const surprise = document.getElementById("surprise")
 
 let id = Math.floor(Math.random() * 1010)
 let pokeUrl = apiUrl+`/${id}`
+let pokemon
 
 
 prev.onclick = () => {
@@ -46,16 +47,19 @@ const display = (pokeUrl) => {
         }).then(data => {
             // Traitement des donnees de la reponse
             // console.log(data);
-            const pokemon = new Pokemon(data.id, data.name, data.sprites.front_default, data.height, data.weight )
+            pokemon = new Pokemon(data.id, data.name, data.sprites.front_default, data.height, data.weight )
             // console.log(pokemon);
             pokeImg.src = pokemon.img
             pokeName.textContent = pokemon.name
             pokeHeight.textContent = pokemon.height
             pokeWeight.textContent = pokemon.weight
+
+
         }).catch(error => {
             // Gestion des erreurs
             console.error("une erreur : "+ error)
         })
+
 }
 
 display(pokeUrl)
