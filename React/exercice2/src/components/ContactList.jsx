@@ -1,8 +1,13 @@
 const ContactList = (props) => {
     const { persons } = props
-    // console.log(persons);
 
-    if(persons) {
+    if (!persons || persons?.length === 0) {
+        return (
+            <p>
+                Vous n'avez pas de contact à afficher
+            </p>
+        )
+    } else {
         return (
             <table className="table table-bordered">
                 <thead>
@@ -23,13 +28,7 @@ const ContactList = (props) => {
                 </tbody>
             </table>
         )
-    } else {
-    return (        
-        <p>
-            Vous n'avez pas de contact à afficher
-        </p>
-    )}
-    
+    }
 }
 
 export default ContactList

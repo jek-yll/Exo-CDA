@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/js/bootstrap.min.js"
 import ContactList from "./components/ContactList";
+import ToDoListComponent from "./components/ToDoListComponent";
 
 function App() {
 
@@ -22,8 +24,9 @@ function App() {
   }]
 
   return (
-    <div className="App">
+    <div className="container py-3">
       <ContactList persons={tabPersons}/>
+      <ToDoListComponent />
     </div>
   );
 }
