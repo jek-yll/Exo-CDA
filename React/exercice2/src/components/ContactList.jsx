@@ -16,8 +16,8 @@ const ContactList = (props) => {
                     {persons.map((person, i) =>
                         <tr key={i}>
                             <th>{person.id}</th>
-                            <th>{person.firstname}</th>
-                            <th>{person.lastname}</th>
+                            <td>{person.firstname}</td>
+                            <td>{person.lastname}</td>
                         </tr>
                     )}
                 </tbody>
