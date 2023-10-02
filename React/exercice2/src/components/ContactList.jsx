@@ -1,6 +1,6 @@
 const ContactList = (props) => {
     const { persons } = props
-    console.log(persons);
+    // console.log(persons);
 
     if(persons) {
         return (

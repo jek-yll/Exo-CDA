@@ -3,7 +3,7 @@ import ContactList from "./components/ContactList";
 
 function App() {
 
-  const tabPerson = [{
+  const tabPersons = [{
     id: 1,
     firstname: "John",
     lastname: "Doe"
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <ContactList persons={tabPerson}/>
+      <ContactList persons={tabPersons}/>
     </div>
   );
 }
