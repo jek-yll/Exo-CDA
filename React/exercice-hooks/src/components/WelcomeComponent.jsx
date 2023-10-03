@@ -24,7 +24,7 @@ const WelcomeComponent = () => {
                 <input type="text" className="form-control" for="lastname" onInput={editInputLastname}/>
             </div>
             <p className="text-center my-2">
-                Bonjour <span className="text-capitalize">{person.firstname}</span> <b className="text-uppercase">{person.lastname}</b>, bienvenue sur l'application !
+                Bonjour <b><span className="text-capitalize">{person.firstname}</span> <span className="text-uppercase">{person.lastname}</span></b>, bienvenue sur l'application !
             </p>
         </>
     )
