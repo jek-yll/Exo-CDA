@@ -7,6 +7,8 @@ class WelcomeComponentClass extends PureComponent {
             firstname: "loïc",
             lastname: "gastrin"
         }
+        this.changeFirstname = this.changeFirstname.bind(this)
+        this.changeLastname = this.changeLastname.bind(this)
     }
 
     changeFirstname (event) {
@@ -22,11 +24,11 @@ class WelcomeComponentClass extends PureComponent {
             <>
                 <div>
                 <label for="firstname" class="form-label">Prénom :</label>
-                <input type="text" className="form-control" for="firstname" onInput={this.changeFirstname.bind(this)}/>
+                <input type="text" className="form-control" for="firstname" onInput={this.changeFirstname}/>
                 </div>
                 <div>
                     <label for="lastname" class="form-label">Nom :</label>
-                    <input type="text" className="form-control" for="lastname" onInput={this.changeLastname.bind(this)}/>
+                    <input type="text" className="form-control" for="lastname" onInput={this.changeLastname}/>
                 </div>
                 <p className="text-center my-2">
                     Bonjour <b><span className="text-capitalize">{this.state.firstname} {this.state.lastname.toUpperCase()}</span></b>, bienvenue sur l'application !
