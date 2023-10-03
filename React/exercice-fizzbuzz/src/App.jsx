@@ -16,7 +16,7 @@ function App() {
         <label className="col-auto mx-4" htmlFor="max">Nombre max </label>
         <input className="form-control" type="number" name="max" id="max" onInput={changeMax}/>
       </div>
-      <FizzBuzz max={max}/>
+      <FizzBuzz max={42}/>
     </>
   )
 }
