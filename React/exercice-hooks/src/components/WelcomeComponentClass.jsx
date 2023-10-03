@@ -3,12 +3,12 @@ import { PureComponent } from "react";
 class WelcomeComponentClass extends PureComponent {
     constructor(props) {
         super(props)
+        this.changeFirstname = this.changeFirstname.bind(this)
+        this.changeLastname = this.changeLastname.bind(this)
         this.state = {
             firstname: "loïc",
             lastname: "gastrin"
         }
-        this.changeFirstname = this.changeFirstname.bind(this)
-        this.changeLastname = this.changeLastname.bind(this)
     }
 
     changeFirstname (event) {
