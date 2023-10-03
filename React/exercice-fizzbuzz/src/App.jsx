@@ -6,8 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   const [max, setMax] = useState(42)
 
-  
-
   const changeMax = (event) => {
     setMax(event.target.value)
   }
