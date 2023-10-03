@@ -22,7 +22,7 @@ const NumberVerif = (props) => {
         a = Math.abs(a);
         b = Math.abs(b);
         if (b > a) {
-           var tmp = a; 
+           let tmp = a; 
            a = b; 
            b = tmp;
         }
