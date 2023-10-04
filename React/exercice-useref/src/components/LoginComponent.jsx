@@ -24,7 +24,7 @@ const LoginComponent = (props) => {
                 <label className='form-label' htmlFor="password">Password :</label>
                 <input className="form-control" type="password" name="password" id="password" ref={passwordInputRef} />
             </div>
-            <button className='btn btn-outline-success mt-2' onClick={login}>Log In</button>
+            <button className='btn btn-outline-success mt-2' onClick={login}>Login</button>
         </>
     )
 }
