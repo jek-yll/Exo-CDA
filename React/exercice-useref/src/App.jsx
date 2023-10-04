@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className='container my-2'>
-      <h1>Log In</h1>
+      <h1>Login</h1>
       <hr />
       <LoginComponent MyLogs={MyLogs}/> 
     </div>
