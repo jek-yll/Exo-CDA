@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 
 const NumberVerif = (props) => {
-    const result = props.result
+    
+    const { result } = props
     const [nbA, setNbA] = useState('')
     const [nbB, setNbB] = useState('')
 
@@ -33,8 +34,6 @@ const NumberVerif = (props) => {
             b %= a;
         }
     }
-    
-    console.log(pgcd(60,36));
 
     const nbPremierEntreEux = (a, b) => {
         if (pgcd(a,b) === 1){
