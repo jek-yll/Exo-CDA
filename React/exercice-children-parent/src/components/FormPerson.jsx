@@ -7,8 +7,7 @@ const FormPerson = (props) => {
     const [lastname, setLastname] = useState('')
     const [birthDate, setBirthDate] = useState('')
 
-    const submitHandler = (e) => {
-        e.preventDefault()
+    const submitHandler = () => {
         addUser({
             firstname: firstname,
             lastname: lastname,

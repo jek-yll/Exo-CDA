@@ -5,7 +5,8 @@ const TablePersons = (props) => {
         return (
             <>
                 <h1>Persons</h1>
-                <table className="table">
+                <hr />
+                <table className="table table-warning table-striped table-hover table-bordered border-danger">
                     <thead>
                         <tr>
                             <th>Firstname</th>
