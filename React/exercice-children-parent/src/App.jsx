@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <div className="container my-2">
-        <FormPerson setUsers={setUsers} addUser={addUser}/>
+        <FormPerson addUser={addUser}/>
         <TablePersons users={users}/>
       </div>
     </>
