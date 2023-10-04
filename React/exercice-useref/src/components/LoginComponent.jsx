@@ -12,7 +12,7 @@ const LoginComponent = (props) => {
             email: emailInputRef.current.value,
             password: passwordInputRef.current.value
         })
-    } 
+    }
 
     return(
         <>
