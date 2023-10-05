@@ -15,7 +15,6 @@ const TimerForm = (props) => {
         })
     }
 
-
     return(
         <Form onSubmit={timerSubmitted}>  
             <div>

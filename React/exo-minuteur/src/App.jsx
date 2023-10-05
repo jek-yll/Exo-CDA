@@ -7,17 +7,16 @@ function App() {
 
   const [timers, setTimers] = useState([])
 
+  
   const addTimer = (newTimer) => {
     setTimers(prevTimers => [...prevTimers, newTimer]);
   }
 
-  console.log(timers);
-
   return (
     <div className='container'>
-      <TimerForm addTimer={addTimer}/>
+      <TimerForm addTimer={addTimer} />
       <hr />
-      <Timer timers={timers}/>
+      <Timer timers={timers} />
     </div>
   )
 }
