@@ -13,7 +13,13 @@ const DeleteButton = ({taskId}) => {
 
 
     return (
-        <button className="btn btn-danger" onClick={removeTask}>Supprimer la tâche</button>
+        <button 
+            className="btn btn-outline-danger border-0 p-0" 
+            onClick={removeTask}
+            disabled={!foundTask.done}
+        >
+            <i className="bi bi-x fs-2"></i>
+        </button>
     )
 }
 

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import TaskForm from './components/TaskForm'
 import TasksListContainer from './components/TasksListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap-icons/font/bootstrap-icons.min.css'
 
 function App() {
   

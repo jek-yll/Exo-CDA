@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { TaskContext } from "../contexts/TaskContext"
 import DeleteButton from "./DeleteButton"
+import DoneSwitch from "./DoneSwitch"
 
 const TaskItem = ({taskId}) => {
     
@@ -22,10 +23,15 @@ const TaskItem = ({taskId}) => {
     }
 
     return (
-        <li className="list-group-item">
+        <li className="list-group-item ">
+            <div className="d-flex justify-content-between align-items-center">
             <h3>{foundTask.name}</h3>
+            <div className="d-flex justify-content-center align-items-center">
+                <DoneSwitch taskId={foundTask.id}/> 
+                <DeleteButton taskId={foundTask.id}/>
+            </div>
+            </div>
             <p>Fin de tâche : {deadlineToString()}</p>
-            <DeleteButton taskId={foundTask.id}/>
         </li>
     )
 }
