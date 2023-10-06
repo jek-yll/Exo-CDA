@@ -1,6 +1,10 @@
 import { useContext } from "react"
 import { TaskContext } from "../contexts/TaskContext"
 
+/* 
+ToDo : Réactiver le bouton lorsque task.done devient true
+*/
+
 const DeleteButton = ({taskId}) => {
     
     const {tasksList, setTaskList}  = useContext(TaskContext)
