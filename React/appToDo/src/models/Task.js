@@ -23,6 +23,11 @@ class Task {
     get done(){
         return this._done
     }
+
+    set done(newDone) {
+        this._done = newDone;
+    }
+
 }
 
 export default Task

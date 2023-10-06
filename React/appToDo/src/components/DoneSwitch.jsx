@@ -1,17 +1,26 @@
-import { useRef } from "react"
+import { useContext, useEffect, useRef } from "react"
+import { TaskContext } from "../contexts/TaskContext"
 
-/*
-ToDo : Faire en sorte que le switch soit checked lorsque Task.done = true 
-Si la deadline est passé ou si l'utilisateur checked par lui même
-Dans ce cas set task.done a true.
-*/
-const DoneSwitch = () => {
+const DoneSwitch = ({ taskId, handlerTaskIsDone }) => {
     
-    const doneSwitchInpuRef = useRef()
-    
+    const  context   = useContext(TaskContext)
+    const foundTask = context.tasksList.find(task => task.id === taskId)
+    const switchInputRef = useRef()
+
+    useEffect(() => {
+        switchInputRef.current.defaultChecked = foundTask.done
+    }, [foundTask.done])
+
+
     return(
         <div className="form-check form-switch">
-            <input className="form-check-input" type="checkbox" htmlFor="done" ref={doneSwitchInpuRef}/>
+            <input 
+                className="form-check-input" 
+                type="checkbox" 
+                htmlFor="done"
+                ref={switchInputRef} 
+                onChange={handlerTaskIsDone}
+            />
         </div>
     )
 }
