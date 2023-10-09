@@ -8,12 +8,12 @@ const TasksListContainer = () => {
 
     return(
         <>
-        <h2>Mes tâches </h2>
-        <div className="list-group">
-            {tasksList.map((task) => (
-                <TaskItem key={task.id} taskId={task.id}/> 
-            ))}
-        </div>
+            <h2>Mes tâches </h2>
+            <div className="list-group">
+                {tasksList.map((task) => (
+                    <TaskItem key={task.id} taskId={task.id}/> 
+                ))}
+            </div>
         </>
     )
 }

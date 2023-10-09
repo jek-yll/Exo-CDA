@@ -48,7 +48,7 @@ const TaskItem = ({taskId}) => {
                     <DeleteButton taskId={foundTask.id} />
                 </div>
             </div>
-            <TaskProgress taskId={foundTask.id} className="d-block"/>
+            {/* <TaskProgress taskId={foundTask.id} className="d-block"/> */}
         </li>
 
     )
