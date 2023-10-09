@@ -2,6 +2,11 @@ import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 
 const Navbar = () => {
+
+    const handleNavLincClasses = ({isActive, isPending}) => {
+        return isPending ? " " : isActive ? " nav-link active " : "nav-link"
+    }
+
     return (
         <>
         
@@ -14,16 +19,16 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <NavLink className="nav-link active"  to="/">Home</NavLink>
+                            <NavLink className={handleNavLincClasses}  to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link active"  to="/projets">Projet</NavLink>
+                            <NavLink className={handleNavLincClasses}  to="/projets">Projet</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link active"  to="/contact">Contact</NavLink>
+                            <NavLink className={handleNavLincClasses}  to="/contact">Contact</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link active"  to="/a-propos">A propos</NavLink>
+                            <NavLink className={handleNavLincClasses}  to="/a-propos">A propos</NavLink>
                         </li>
                     </ul>
                 </div>
