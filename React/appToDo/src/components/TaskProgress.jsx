@@ -1,6 +1,6 @@
 import { useRef, useState, useContext, useEffect } from "react"
 import { TaskContext } from "../contexts/TaskContext"
-import classes from '../assets/TaskProgress.module.css'
+import classes from './TaskProgress.module.css'
 
 const TaskProgress = (props) => {
 
@@ -23,7 +23,7 @@ const TaskProgress = (props) => {
         if (currentTime !== 0) {
             interval = setInterval(() => {
                 setCurrentTime(currentTime - 1)
-            }, 100)
+            }, 1000)
         }
 
         return () => {
