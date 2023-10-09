@@ -1,7 +1,8 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useState } from "react"
 import { TaskContext } from "../contexts/TaskContext"
 import DeleteButton from "./DeleteButton"
 import DoneSwitch from "./DoneSwitch"
+import TaskProgress from "./TaskProgress"
 
 const TaskItem = ({taskId}) => {
     
@@ -32,27 +33,24 @@ const TaskItem = ({taskId}) => {
         setTaskList(updatedTasks)
     }
 
-    useEffect(() => {
-        const currentTime = new Date();
-        if (foundTask.deadline < currentTime && !taskIsDone) {
-            handlerTaskIsDone()
-        }
-    }, [foundTask, taskIsDone])
-
     return (
-        <li className="list-group-item d-flex justify-content-between align-items-center">
-            <div className="">
-            <h3>{foundTask.name}</h3>
-            <p>A effectuer avant le : {deadlineToString()}</p>
+        <li className="list-group-item ">
+            <div className="d-flex justify-content-between align-items-center">
+                <div className="">
+                <h3>{foundTask.name}</h3>
+                <p>A effectuer avant le : {deadlineToString()}</p>
+                </div>
+                <div className="d-flex justify-content-center align-items-center">
+                    <DoneSwitch 
+                        taskId={foundTask.id} 
+                        handlerTaskIsDone={handlerTaskIsDone} 
+                    /> 
+                    <DeleteButton taskId={foundTask.id} />
+                </div>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
-                <DoneSwitch 
-                    taskId={foundTask.id} 
-                    handlerTaskIsDone={handlerTaskIsDone} 
-                /> 
-                <DeleteButton taskId={foundTask.id} />
-            </div>
+            <TaskProgress taskId={foundTask.id} className="d-block"/>
         </li>
+
     )
 }
 

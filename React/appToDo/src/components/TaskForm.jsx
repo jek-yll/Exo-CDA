@@ -42,7 +42,6 @@ const TaskForm = () => {
         const isValid = name.trim() !== "" && deadlineDay.trim() !== "" && deadlineHour.trim() !== ""
 
         setFormIsValid(isValid)
-        console.log(isValid)
     }, [name, deadlineDay, deadlineHour])
 
     
