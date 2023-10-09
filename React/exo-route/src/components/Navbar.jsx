@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <>
         
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
             <div className="container-fluid">
                 <NavLink className="navbar-brand" to="/">eWebsite</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,9 +34,8 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-        <div className='container'>
-
-        <Outlet/>
+        <div className='container my-3'>
+            <Outlet/>   
         </div>
         </>
     )
