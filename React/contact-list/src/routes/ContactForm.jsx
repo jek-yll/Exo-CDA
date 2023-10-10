@@ -92,22 +92,50 @@ const ContactForm = () => {
                 <div>
                     <div className="mb-3">
                         <label htmlFor="firstname" className="form-label">Prénom :</label>
-                        <input type="text" className="form-control" id="firstname" placeholder="Prénom" ref={firstnameInputRef} />
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            id="firstname" 
+                            placeholder="Prénom" 
+                            ref={firstnameInputRef} 
+                        />
                     </div>
                     <div className="mb-3">
                         <label htmlFor="lastname" className="form-label">Nom :</label>
-                        <input type="text" className="form-control" id="lastname" placeholder="Nom" ref={lastnameInputRef} />
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            id="lastname" 
+                            placeholder="Nom" 
+                            ref={lastnameInputRef} 
+                        />
                     </div><div className="mb-3">
                         <label htmlFor="email" className="form-label">Mail :</label>
-                        <input type="text" className="form-control" id="email" placeholder="Mail" ref={emailInputRef} />
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            id="email" 
+                            placeholder="Mail" 
+                            ref={emailInputRef} 
+                        />
                     </div><div className="mb-3">
                         <label htmlFor="phoneNumber" className="form-label">Numéro de téléphone :</label>
-                        <input type="text" className="form-control" id="phoneNumber" placeholder="Tel" ref={phoneNumberInputRef} />
+                        <input 
+                            type="text" 
+                            className="form-control" 
+                            id="phoneNumber" 
+                            placeholder="Tel" 
+                            ref={phoneNumberInputRef} 
+                        />
                     </div>
                 </div>
-                {mode === 'add' ? <button className="btn btn-success">Ajouter</button> : 
-                mode === 'edit' ? <button className="btn btn-warning">Modifier</button> :
-                <button className="btn btn-danger">Supprimer</button>}
+                {
+                mode === 'add' ? <button className="btn btn-success">Ajouter</button> 
+                : 
+                mode === 'edit' ? <button className="btn btn-warning">Modifier</button> 
+                :
+                <button className="btn btn-danger">Supprimer</button>
+                }
 
             </Form>
         </>
