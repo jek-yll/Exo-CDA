@@ -1,7 +1,7 @@
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 import ContactContext from "../contexts/ContactContext"
 import ContactItem from "../components/ContacItem"
-import { useNavigate } from "react-router-dom"
 
 const ContactsList = () => {
 
@@ -11,8 +11,6 @@ const ContactsList = () => {
     const clickHandler = () => {
         navigate(`/contacts/add?mode=add`)
     }
-
-    console.log(contacts);
 
     if (!contacts || contacts?.length === 0){
         return (

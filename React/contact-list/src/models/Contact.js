@@ -10,9 +10,9 @@ class Contact {
 
     }
 
-   get id() {
+    get id() {
         return this._id
-   }
+    }
     
     get firstname() {
         return this._firstname

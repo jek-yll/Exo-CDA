@@ -6,13 +6,13 @@ function App() {
 
     const [contacts, setContacts] = useState([])
 
-  const handleNavLinkClasses = ({isActive, isPending}) => {
-    return isPending ? " " : isActive ? "nav-link active" : "nav-link"
-}
+    const handleNavLinkClasses = ({ isActive, isPending }) => {
+        return isPending ? " " : isActive ? "nav-link active" : "nav-link"
+    }
 
-  return (
-    <>
-       <header>
+    return (
+        <>
+            <header>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div className="container-fluid">
                         <Link className="navbar-brand" to="/">eContacts</Link>
@@ -22,10 +22,10 @@ function App() {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <NavLink className={handleNavLinkClasses}  to="/">Accueil</NavLink>
+                                    <NavLink className={handleNavLinkClasses} to="/">Accueil</NavLink>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink className={handleNavLinkClasses}  to="/contacts">Contacts</NavLink>
+                                    <NavLink className={handleNavLinkClasses} to="/contacts">Contacts</NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -33,12 +33,12 @@ function App() {
                 </nav>
             </header>
             <main className='container'>
-                <ContactContext.Provider value={{contacts, setContacts}}>
-                    <Outlet/>   
+                <ContactContext.Provider value={{ contacts, setContacts }}>
+                    <Outlet />
                 </ContactContext.Provider>
             </main>
-    </>
-  )
+        </>
+    )
 }
 
 export default App

@@ -19,14 +19,14 @@ const ContactItem = ({contactId}) => {
     return(
         <>
         <h1>{contact.firstname} {contact.lastname}</h1>
-        <div>
-        <p>mail : {contact.email}</p>
-        <p>tel : {contact.phoneNumber}</p>
-        <div>
-            <button onClick={handlerEditClick}>Edit</button>
-            <button onClick={handlerDeleteClick}>Delete</button>
-        </div>
-        </div>
+            <div>
+                <p>mail : {contact.email}</p>
+                <p>tel : {contact.phoneNumber}</p>
+                <div>
+                    <button onClick={handlerEditClick}>Edit</button>
+                    <button onClick={handlerDeleteClick}>Delete</button>
+                </div>
+            </div>
         <hr />
         </>
     )
