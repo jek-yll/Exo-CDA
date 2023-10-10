@@ -28,7 +28,8 @@ const ContactForm = () => {
             const index = contacts.indexOf(contact)
             console.log(`index : ${index}`);
 
-            const modifiedContact = contact
+            let modifiedContact = {...contact}
+            modifiedContact.id = contact.id
             modifiedContact.firstname = firstnameInputRef.current.value
             modifiedContact.lastname = lastnameInputRef.current.value
             modifiedContact.email = emailInputRef.current.value
@@ -37,8 +38,6 @@ const ContactForm = () => {
             console.log(modifiedContact);
             contactsCopy[index] = modifiedContact
             setContacts(contactsCopy)
-
-            
 
         } else if ( mode === 'delete') {
             setContacts((contacts.filter((c) => c.id === contact.id)))
