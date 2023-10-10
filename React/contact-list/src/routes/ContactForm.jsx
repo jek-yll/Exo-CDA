@@ -56,10 +56,10 @@ const ContactForm = () => {
     }
 
     const lockedInput = () => {
-        firstnameInputRef.current.readonly
-        lastnameInputRef.current.readonly
-        emailInputRef.current.readonly
-        phoneNumberInputRef.current.readonly
+        firstnameInputRef.current.disabled
+        lastnameInputRef.current.disabled
+        emailInputRef.current.disabled
+        phoneNumberInputRef.current.disabled
     }
 
     useEffect(() => {
