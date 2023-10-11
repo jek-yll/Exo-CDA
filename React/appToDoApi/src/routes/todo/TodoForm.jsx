@@ -19,11 +19,13 @@ const TodoForm = () => {
 
     const navigate = useNavigate()
 
-    useEffect(() => {
-        axios.get(`http://localhost:3000/todos/${id}`)
-        .then(response => setTodo(response.data))
-        .catch(error => console.error(error))
-      }, [])
+    if ( mode === 'edit') {
+        useEffect(() => {
+            axios.get(`http://localhost:3000/todos/${id}`)
+            .then(response => setTodo(response.data))
+            .catch(error => console.error(error))
+          }, [todoId])
+    }
 
     const submitHandler = () => {
         
