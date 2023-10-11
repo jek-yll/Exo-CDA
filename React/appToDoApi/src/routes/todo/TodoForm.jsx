@@ -7,7 +7,7 @@ import todoContext from './contexts/todoContext';
 
 const TodoForm = () => {
     
-    const { todos, setTodos } = useContext(todoContext)
+    const { todos } = useContext(todoContext)
     const titleInputRef = useRef()
     const descriptionInputRef = useRef()
     
@@ -18,8 +18,6 @@ const TodoForm = () => {
     const mode = searchParams.get('mode')
     
     const navigate = useNavigate()
-
-
 
     const submitHandler = () => {
         
