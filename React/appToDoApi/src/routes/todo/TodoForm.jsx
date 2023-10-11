@@ -18,15 +18,15 @@ const TodoForm = () => {
     const descriptionInputRef = useRef()
 
     const navigate = useNavigate()
-
-    if ( mode === 'edit') {
-        useEffect(() => {
+    
+    useEffect(() => {
+        if ( mode === 'edit') {
             axios.get(`http://localhost:3000/todos/${id}`)
             .then(response => setTodo(response.data))
             .catch(error => console.error(error))
-          }, [todoId])
-    }
-
+        }
+      }, [todoId])
+    
     const submitHandler = () => {
         
         const title = titleInputRef.current.value
@@ -44,7 +44,6 @@ const TodoForm = () => {
                 navigate("/")
             )
             .catch(error => console.error(error))
-
 
         } else {
             const newTodo = new Todo(title, description)
