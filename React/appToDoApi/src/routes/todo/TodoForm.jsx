@@ -1,23 +1,29 @@
-import { useContext, useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import Form from './../../shared/Form';
 import Todo from '../../models/Todo';
-import todoContext from './contexts/todoContext';
 
 const TodoForm = () => {
     
-    const { todos } = useContext(todoContext)
-    const titleInputRef = useRef()
-    const descriptionInputRef = useRef()
-    
     const { todoId } = useParams()
-    const todo = todos.find(t => t.id === +todoId)
+    const id = +todoId
+    
+    const [todo, setTodo] = useState({})
 
     const [searchParams] = useSearchParams()
     const mode = searchParams.get('mode')
     
+    const titleInputRef = useRef()
+    const descriptionInputRef = useRef()
+
     const navigate = useNavigate()
+
+    useEffect(() => {
+        axios.get(`http://localhost:3000/todos/${id}`)
+        .then(response => setTodo(response.data))
+        .catch(error => console.error(error))
+      }, [])
 
     const submitHandler = () => {
         

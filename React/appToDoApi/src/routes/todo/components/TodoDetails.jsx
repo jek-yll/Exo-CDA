@@ -4,10 +4,9 @@ import axios from "axios"
 
 const TodoDetails = () => {
     
+    const [todo, setTodo] = useState({})
     const { todoId } = useParams()
     const id = +todoId
-
-    const [todo, setTodo] = useState({})
 
     const navigate = useNavigate()
     
