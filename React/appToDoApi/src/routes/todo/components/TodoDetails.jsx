@@ -24,7 +24,7 @@ const TodoDetails = () => {
         axios.delete(`http://localhost:3000/todos/${id}`)
         .then(console.log(`todo ${id} supprimé`))
         .catch(error => console.error(error))
-        navigate("/")
+        .finally(navigate("/"))
     }
 
     return(

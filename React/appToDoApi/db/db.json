@@ -1,21 +1,3 @@
 {
-  "todos": [
-    {
-      "id": 7,
-      "_title": "test 3",
-      "_description": "todo test 3"
-    },
-    {
-      "_title": "test",
-      "_description": "champion",
-      "_isDone": false,
-      "_deadline": "",
-      "id": 8
-    },
-    {
-      "id": 9,
-      "_title": "test",
-      "_description": "232332"
-    }
-  ]
+  "todos": []
 }

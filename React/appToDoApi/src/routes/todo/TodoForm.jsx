@@ -28,23 +28,20 @@ const TodoForm = () => {
       }, [todoId])
     
     const submitHandler = () => {
-        
         const title = titleInputRef.current.value
         const description = descriptionInputRef.current.value
-        
+
         if(mode === "edit") {
             const updatedTodo = {
                 id: todoId,
                 _title: title,
                 _description: description
-            }
-            
+            }    
             axios.put(`http://localhost:3000/todos/${todoId}`, updatedTodo)
             .then(
                 navigate("/")
             )
             .catch(error => console.error(error))
-
         } else {
             const newTodo = new Todo(title, description)
             axios.post('http://localhost:3000/todos', newTodo)
