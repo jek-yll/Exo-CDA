@@ -1,0 +1,49 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "product1",
+            "description": "description description description description description description description description description",
+            "price": 19.99
+        },
+        {
+            "id": 2,
+            "title": "product56",
+            "description": "description description description description description description description description description",
+            "price": 29.99
+        },
+        {
+            "id": 3,
+            "title": "product3",
+            "description": "description description description description description description description description description",
+            "price": 9.99
+        },
+        {
+            "id": 4,
+            "title": "product4",
+            "description": "description description description description description description description description description",
+            "price": 39.99
+        },
+        {
+            "id": 5,
+            "title": "product5",
+            "description": "description description description description description description description description description",
+            "price": 49.99
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "email": "admin@mail.fr",
+            "password": "motdepassesecure",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "email": "user@mail.fr",
+            "password": "motdepassesecureuser",
+            "role": "client"
+        }
+    ]
+
+}
