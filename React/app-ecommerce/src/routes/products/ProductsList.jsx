@@ -18,7 +18,11 @@ const ProductsList = () => {
         <>
             { 
             !products ? <p>Chargement des produits .....</p> : 
-            products.map( product => <ProductItem key={product.id} product={product} /> )  
+            products.map( product => 
+            <ProductItem 
+                key={product.id} 
+                product={product} 
+            /> )
             }
         </>
     )

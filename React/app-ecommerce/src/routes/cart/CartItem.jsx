@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react"
 
-const CartItem = ({ p }) => {
+const CartItem = ({ p, setMyCart, setTotal }) => {
 
-    let [product, setProduct] = useState(p)
-    let [quantity, setQuantity] = useState(product.quantity)
+    const [product, setProduct] = useState(p)
+    const [quantity, setQuantity] = useState(product.quantity)
+
+    const myCart = JSON.parse(localStorage.getItem("myCart"))
 
     const quantityInputRef = useRef()
     const lessBtnRef = useRef()
@@ -11,11 +13,36 @@ const CartItem = ({ p }) => {
 
     useEffect(() => {
         quantityInputRef.current.value = quantity
+        setProduct({...product, quantity: +quantity})
     }, [quantity])
 
-    const handlerLessBtn = () => {
+    useEffect(() => {
+        const myCart = JSON.parse(localStorage.getItem("myCart")) || [];
+    
+        const updatedCart = myCart.map((item) => {
+          if (item.id === product.id) {
+            return { ...item, quantity };
+          }
+          return item;
+        });
+    
+        localStorage.setItem("myCart", JSON.stringify(updatedCart));
+      }, [quantity, product.id]);
+
+    useEffect(() => {
+        const newTotal = myCart.reduce((sum, item) => {
+            const productTotal = item.price * item.quantity;
+    
+            return sum + productTotal;
+          }, 0);
+          setTotal(newTotal)
+
+    }, [myCart])
+
+    const handlerLessBtn = () => { 
         if ( quantity > 0 ) {
-            setQuantity(quantity-1)  
+            setQuantity(quantity-1)
+            console.log(myCart) 
         } 
     }
 
@@ -24,7 +51,9 @@ const CartItem = ({ p }) => {
     }
 
     const handlerSupprBtn = () => {
-
+        const newCart = myCart.filter(p => p.id !== product.id)
+        localStorage.setItem("myCart", JSON.stringify(newCart))
+        setMyCart(newCart)
     }
 
     return (
