@@ -120,5 +120,19 @@
                 "count": 470
             }
         }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "email": "admin@mail.fr",
+            "password": "admin",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "email": "user@mail.fr",
+            "password": "client",
+            "role": "client"
+        }
     ]
 }
