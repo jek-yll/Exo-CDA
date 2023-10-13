@@ -15,7 +15,7 @@ const ProductTab = () => {
         getAllProducts().then(
             response => setProducts(response.data)
         )
-    }, [products])
+    }, [])
 
     return (
         <>
