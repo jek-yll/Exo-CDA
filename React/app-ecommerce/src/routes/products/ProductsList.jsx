@@ -2,27 +2,26 @@ import { useEffect, useState } from "react"
 import { getAllProducts } from "../../services/api"
 import ProductItem from "./ProductItem"
 
-
 const ProductsList = () => {
 
-    const [ products, setProducts ] = useState()
+    const [products, setProducts] = useState([])
 
     useEffect(() => {
         getAllProducts()
-        .then(
-            response => setProducts(response.data)
-        )
+            .then(
+                response => setProducts(response.data)
+            )
     }, [])
 
-    return(
+    return (
         <>
-            { 
-            !products ? <p>Chargement des produits .....</p> : 
-            products.map( product => 
-            <ProductItem 
-                key={product.id} 
-                product={product} 
-            /> )
+            {
+                !products || products.length === 0 ? <p>Chargement des produits .....</p> :
+                    products.map(product =>
+                        <ProductItem
+                            key={product.id}
+                            product={product}
+                        />)
             }
         </>
     )

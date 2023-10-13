@@ -13,41 +13,41 @@ const CartItem = ({ p, setMyCart, setTotal }) => {
 
     useEffect(() => {
         quantityInputRef.current.value = quantity
-        setProduct({...product, quantity: +quantity})
+        setProduct({ ...product, quantity: +quantity })
     }, [quantity])
 
     useEffect(() => {
         const myCart = JSON.parse(localStorage.getItem("myCart")) || [];
-    
+
         const updatedCart = myCart.map((item) => {
-          if (item.id === product.id) {
-            return { ...item, quantity };
-          }
-          return item;
+            if (item.id === product.id) {
+                return { ...item, quantity };
+            }
+            return item;
         });
-    
+
         localStorage.setItem("myCart", JSON.stringify(updatedCart));
-      }, [quantity, product.id]);
+    }, [quantity, product.id]);
 
     useEffect(() => {
         const newTotal = myCart.reduce((sum, item) => {
             const productTotal = item.price * item.quantity;
-    
+
             return sum + productTotal;
-          }, 0);
-          setTotal(newTotal)
+        }, 0);
+        setTotal(newTotal)
 
     }, [myCart])
 
-    const handlerLessBtn = () => { 
-        if ( quantity > 0 ) {
-            setQuantity(quantity-1)
-            console.log(myCart) 
-        } 
+    const handlerLessBtn = () => {
+        if (quantity > 0) {
+            setQuantity(quantity - 1)
+            // console.log(myCart) 
+        }
     }
 
     const handlerMoreBtn = () => {
-        setQuantity(quantity+1)
+        setQuantity(quantity + 1)
     }
 
     const handlerSupprBtn = () => {
@@ -61,7 +61,7 @@ const CartItem = ({ p, setMyCart, setTotal }) => {
             <th>{p.title}</th>
             <td>
                 <div>
-                    <button 
+                    <button
                         onClick={handlerLessBtn}
                         ref={lessBtnRef}
                     >-</button>
@@ -72,14 +72,14 @@ const CartItem = ({ p, setMyCart, setTotal }) => {
                         defaultValue={quantity}
                         ref={quantityInputRef}
                     />
-                    <button 
+                    <button
                         onClick={handlerMoreBtn}
                         ref={moreBtnRef}
                     >+</button>
                 </div>
             </td>
             <td>
-                {Math.floor((quantity * p.price)*100)/100}
+                {Math.floor((quantity * p.price) * 100) / 100}
             </td>
             <td>
                 <button onClick={handlerSupprBtn}>suppr</button>

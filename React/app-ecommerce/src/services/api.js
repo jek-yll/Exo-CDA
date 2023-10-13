@@ -20,6 +20,6 @@ export const deleteProductById = (id) => {
     return axios.delete(`http://localhost:3000/products/${id}`)
 }
 
-export const getAllUsert = () => {
+export const getAllUsers = () => {
     return axios.get(`http://localhost:3000/users`)
 }

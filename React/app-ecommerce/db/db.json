@@ -1,49 +1,90 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "title": "product1",
-            "description": "description description description description description description description description description",
-            "price": 19.99
-        },
-        {
-            "id": 2,
-            "title": "product56",
-            "description": "description description description description description description description description description",
-            "price": 29.99
-        },
-        {
-            "id": 3,
-            "title": "product3",
-            "description": "description description description description description description description description description",
-            "price": 9.99
-        },
-        {
-            "id": 4,
-            "title": "product4",
-            "description": "description description description description description description description description description",
-            "price": 39.99
-        },
-        {
-            "id": 5,
-            "title": "product5",
-            "description": "description description description description description description description description description",
-            "price": 49.99
-        }
-    ],
-    "users": [
-        {
-            "id": 1,
-            "email": "admin@mail.fr",
-            "password": "motdepassesecure",
-            "role": "admin"
-        },
-        {
-            "id": 2,
-            "email": "user@mail.fr",
-            "password": "motdepassesecureuser",
-            "role": "client"
-        }
-    ]
-
+  "products": [
+    {
+      "id": 1,
+      "title": "product1",
+      "description": "description description description description description description description description description",
+      "price": 19.99
+    },
+    {
+      "id": 2,
+      "title": "product2",
+      "description": "description description description description description description description description description",
+      "price": 29.99
+    },
+    {
+      "id": 3,
+      "title": "product3",
+      "description": "description description description description description description description description description",
+      "price": 9.99
+    },
+    {
+      "id": 4,
+      "title": "product4",
+      "description": "description description description description description description description description description",
+      "price": 39.99
+    },
+    {
+      "id": 5,
+      "title": "product5",
+      "description": "description description description description description description description description description",
+      "price": 49.99
+    },
+    {
+      "title": "product6",
+      "description": "test test ",
+      "price": "19.99",
+      "id": 6
+    },
+    {
+      "title": "product7",
+      "description": "test test ",
+      "price": "19.99",
+      "id": 7
+    },
+    {
+      "title": "product8",
+      "description": "testtesttetst",
+      "price": "12.99",
+      "id": 9
+    },
+    {
+      "title": "product9",
+      "description": "super choux fleur",
+      "price": "9.58",
+      "id": 10
+    },
+    {
+      "title": "télévision",
+      "description": "écran ultra plat",
+      "price": "17.99",
+      "id": 11
+    },
+    {
+      "title": "product10",
+      "description": "etetete",
+      "price": "9.99",
+      "id": 12
+    },
+    {
+      "title": "shampoing",
+      "description": "au beurre de karité",
+      "price": "8.99",
+      "id": 13
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@mail.fr",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "user@mail.fr",
+      "password": "client",
+      "role": "client"
+    }
+  ]
 }

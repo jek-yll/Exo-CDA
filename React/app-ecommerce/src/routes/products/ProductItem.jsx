@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom"
 
-
-const ProductItem = ({product}) => {
+const ProductItem = ({ product }) => {
 
     const navigate = useNavigate()
 
