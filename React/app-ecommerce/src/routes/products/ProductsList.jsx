@@ -17,11 +17,13 @@ const ProductsList = () => {
         <>
             {
                 !products || products.length === 0 ? <p>Chargement des produits .....</p> :
-                    products.map(product =>
-                        <ProductItem
-                            key={product.id}
-                            product={product}
-                        />)
+                    <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+                        {products.map(product =>
+                            <ProductItem
+                                key={product.id}
+                                product={product}
+                            />)}
+                    </div>
             }
         </>
     )

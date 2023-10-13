@@ -36,7 +36,10 @@ const router = createBrowserRouter([
     },
     {
         path: "/admin",
-        element: <ProtectedRoute><App /></ProtectedRoute>,
+        element:
+            <ProtectedRoute>
+                <App />
+            </ProtectedRoute>,
         errorElement: <ErrorPage />,
         children: [
             {
