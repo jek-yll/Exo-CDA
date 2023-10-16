@@ -15,6 +15,8 @@ const AddProduct = () => {
                 price: priceRef.current.value
             }
         ))
+        titleRef.current.value = ""
+        priceRef.current.value = ""
     }
 
     return ( 
@@ -22,11 +24,11 @@ const AddProduct = () => {
             <h2>Ajouter un produit</h2>
             <div className="my-3">
                 <label className="form-label" htmlFor="title">Nom du produit</label>
-                <input className="form-control" type="text" name="title" id="title" ref={titleRef}/>
+                <input className="form-control" type="text" name="title" id="title" ref={titleRef} required/>
             </div>
             <div className="my-3">
                 <label className="form-lable" htmlFor="price">Prix du produit</label>
-                <input className="form-control" type="number" name="price" id="price" ref={priceRef}/>
+                <input className="form-control" type="number" name="price" id="price" ref={priceRef} required/>
             <div className="my-3 d-flex justify-content-center">
                 <button className="btn btn-success">Ajouter un produit</button>
             </div>
