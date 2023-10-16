@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import ProductList from './components/ProductList'
 import AddProduct from './components/AddProduct'
-
+import './App.css'
 
 function App() {
 
