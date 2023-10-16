@@ -15,7 +15,7 @@ const ProductList = () => {
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody className="table-group-divider">
                 {
                     products.map((p, key) => (
                         <ProductItem key={key} product={p} />

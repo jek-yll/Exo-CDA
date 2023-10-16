@@ -1,19 +1,19 @@
+import { useRef, useState } from "react"
 import { useDispatch } from "react-redux"
 import { deleteProduct, updateProduct } from "./Products.Slice"
-import { useRef, useState } from "react"
 
 const ProductItem = ({ product }) => {
     const titleRef = useRef()
     const priceRef = useRef()
     const dispatch = useDispatch()
 
-    const prevTitle = product.title
+    const [updateMode, setUpdateMode] = useState(false)
+    
     const prevPrice = product.price
-
-    const [updateMode, setupdateMode] = useState(false)
-
+    const prevTitle = product.title
+    
     const handlerUpdateMode = () => {
-        setupdateMode(!updateMode)
+        setUpdateMode(!updateMode)
     }
 
     const handlerSave = () => {
@@ -21,19 +21,18 @@ const ProductItem = ({ product }) => {
             updateProduct(
                 {
                     id: product.id,
-                    title: titleRef.current.value,
-                    price: priceRef.current.value
+                    title: titleRef.current.value ? titleRef.current.value : prevTitle,
+                    price: priceRef.current.value ? priceRef.current.value : prevPrice
                 }
             ))
-        setupdateMode(!updateMode)
+        setUpdateMode(!updateMode)
+        console.log(product);
     }
-
-    console.log(prevPrice);
 
     const handlerAbort = () => {
         titleRef.current.value = prevTitle
         priceRef.current.value = prevPrice
-        setupdateMode(!updateMode)
+        setUpdateMode(!updateMode)
     }
  
     return (
@@ -44,16 +43,18 @@ const ProductItem = ({ product }) => {
                     name="title"
                     id="title"
                     defaultValue={product.title}
+                    placeholder={product.title}
                     ref={titleRef}
                     disabled={updateMode ? false : true}
                 />
             </td>
             <td className="col-4">
                 <input
-                    type="price"
+                    type="text"
                     name="price"
                     id="price"
                     defaultValue={product.price}
+                    placeholder={product.price}
                     ref={priceRef}
                     disabled={updateMode ? false : true}
                 />
