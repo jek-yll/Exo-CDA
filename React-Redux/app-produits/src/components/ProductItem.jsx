@@ -7,6 +7,9 @@ const ProductItem = ({ product }) => {
     const priceRef = useRef()
     const dispatch = useDispatch()
 
+    const prevTitle = product.title
+    const prevPrice = product.price
+
     const [updateMode, setupdateMode] = useState(false)
 
     const handlerUpdateMode = () => {
@@ -25,6 +28,14 @@ const ProductItem = ({ product }) => {
         setupdateMode(!updateMode)
     }
 
+    console.log(prevPrice);
+
+    const handlerAbort = () => {
+        titleRef.current.value = prevTitle
+        priceRef.current.value = prevPrice
+        setupdateMode(!updateMode)
+    }
+ 
     return (
         <tr>
             <td scope="row">
@@ -48,22 +59,31 @@ const ProductItem = ({ product }) => {
                 />
             </td>
             <td>
+                <button onClick={() => dispatch(deleteProduct(product.id))} className="btn btn-danger">Supprimer</button>
                 {
                     updateMode ?
-                        <button
-                            onClick={handlerSave}
-                            className="btn btn-warning"
-                        >
-                            Enregistrer
-                        </button> :
+                        <>
+                            <button
+                                onClick={handlerSave}
+                                className="btn btn-warning"
+                            >
+                                Enregistrer
+                            </button> 
+                            <button 
+                                onClick={handlerAbort}
+                                className="btn btn-light"
+                            >
+                                Annuler
+                            </button>
+                        </>
+                        :
                         <button
                             onClick={handlerUpdateMode}
                             className="btn btn-success"
                         >
                             Modifier
-                        </button>
+                        </button>    
                 }
-                <button onClick={() => dispatch(deleteProduct(product.id))} className="btn btn-danger">Supprimer</button>
             </td>
         </tr>
     );
