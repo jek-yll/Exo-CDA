@@ -38,7 +38,7 @@ const ProductItem = ({ product }) => {
  
     return (
         <tr>
-            <td scope="row">
+            <td className="col-4">
                 <input
                     type="text"
                     name="title"
@@ -48,7 +48,7 @@ const ProductItem = ({ product }) => {
                     disabled={updateMode ? false : true}
                 />
             </td>
-            <td>
+            <td className="col-4">
                 <input
                     type="price"
                     name="price"
@@ -58,20 +58,20 @@ const ProductItem = ({ product }) => {
                     disabled={updateMode ? false : true}
                 />
             </td>
-            <td>
-                <button onClick={() => dispatch(deleteProduct(product.id))} className="btn btn-danger">Supprimer</button>
+            <td className="col-4">
+                <button onClick={() => dispatch(deleteProduct(product.id))} className="btn btn-danger me-1">Supprimer</button>
                 {
                     updateMode ?
                         <>
                             <button
                                 onClick={handlerSave}
-                                className="btn btn-warning"
+                                className="btn btn-warning me-1"
                             >
                                 Enregistrer
                             </button> 
                             <button 
                                 onClick={handlerAbort}
-                                className="btn btn-light"
+                                className="btn btn-light me-1"
                             >
                                 Annuler
                             </button>
@@ -79,7 +79,7 @@ const ProductItem = ({ product }) => {
                         :
                         <button
                             onClick={handlerUpdateMode}
-                            className="btn btn-success"
+                            className="btn btn-success me-1"
                         >
                             Modifier
                         </button>    
