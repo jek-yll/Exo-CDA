@@ -4,23 +4,22 @@ import axios from "axios"
 
 export const signUpUser = createAsyncThunk(
     "auth/signUpUser",
-    async (email, password) => {
-        const credentials = {
-            email: email,
-            password: password,
-            returnSecureToken: true
-        }
+    async (identifiants) => {
 
-
+        const credentials = {...identifiants, returnSecureToken: true}
+        // console.log(credentials)
         try {
             const response = await axios.post(SIGN_UP, credentials)
-            if (!response.ok) {
+        
+            if (response.status !== 200) {
                 throw new Error("Something went wrong")
             }
-            const data = await response.json()
+
+            const data = await response.data
             localStorage.setItem("token", data.idToken)
-        } catch {
-            console.error(error.message)
+            return data
+        } catch(error) {
+            console.error(error)
         }
     }
 )
@@ -37,9 +36,7 @@ export const signInUser = createAsyncThunk(
 
         try {
             const response = await axios.post(SIGN_IN, credentials)
-            if (!response.ok) {
-                throw new Error("Something went wrong")
-            }
+            console.log(response)
             const data = await response.json()
             localStorage.setItem("token", data.idToken)
         } catch {
