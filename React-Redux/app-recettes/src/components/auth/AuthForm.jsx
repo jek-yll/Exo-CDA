@@ -17,7 +17,7 @@ const AuthForm = () => {
         e.preventDefault()
 
         const email = emailRef.current.value
-        const password = emailRef.current.value
+        const password = passwordRef.current.value
 
         const credentials = {
             email,
@@ -39,7 +39,7 @@ const AuthForm = () => {
                 // console.dir(response);
                 throw new Error("Something went wrong during the POST" ) 
             }
-
+            console.log(credentials);
             const data = await response.json()
 
             localStorage.setItem("token", data.idToken)
