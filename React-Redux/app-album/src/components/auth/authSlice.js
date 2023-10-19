@@ -7,7 +7,6 @@ export const signUpUser = createAsyncThunk(
     async (identifiants) => {
 
         const credentials = {...identifiants, returnSecureToken: true}
-        // console.log(credentials)
         try {
             const response = await axios.post(SIGN_UP, credentials)
         
@@ -26,91 +25,37 @@ export const signUpUser = createAsyncThunk(
 
 export const signInUser = createAsyncThunk(
     "auth/signInUser",
-    async (email, password) => {
+    async (identifiants) => {
         
-        const credentials = {
-            email: email,
-            password: password,
-            returnSecureToken: true
-        }
+        const credentials = {...identifiants, returnSecureToken: true}
 
         try {
             const response = await axios.post(SIGN_IN, credentials)
-            console.log(response)
-            const data = await response.json()
+            if (response.status !== 200) {
+                throw new Error("Something went wrong")
+            }
+
+            const data = await response.data
             localStorage.setItem("token", data.idToken)
+            return data
         } catch {
-            console.error(error.message)
+            console.error(error)
         }
     })
-    
-export const signUpFetch = createAsyncThunk(
-    "auth/signUpFetch",
-    async (email, password) => {
-
-        const credentials = {
-            email: email,
-            password: password,
-            returnSecureToken: true
-        }
-
-        try {
-            const response = await fetch(SIGN_UP,{
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(credentials)
-            })
-            if (!response.ok) {
-                throw new Error("Something went wrong during the POST")
-            }
-            const data = await response.json()
-            localStorage.setItem("token", data.idToken)
-        } catch(error) {
-            console.error(error.message)
-        }
-    }
-)
-
-export const signInFetch = createAsyncThunk(
-    "auth/signInFetch",
-    async (email, password) => {
-
-        const credentials = {
-            email: email,
-            password: password,
-            returnSecureToken: true
-        }
-
-        try {
-            const response = await fetch(SIGN_IN,{
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(credentials)
-            })
-            if (!response.ok) {
-                throw new Error("Something went wrong during the POST")
-            }
-            const data = await response.json()
-            localStorage.setItem("token", data.idToken)
-        } catch(error) {
-            console.error(error.message)
-        }
-    }
-)
 
 const authSlice = createSlice({
     name: "auth",
     initialState: {
         user: null,
-        authMode: "Sign Up"
+        authMode: ""
     },
     reducers: {
         setAuthMode: (state, action) => {
             state.authMode = action.payload
+        },
+        signOutUser: (state) => {
+            state.user = null
+            localStorage.removeItem("token")
         }
     },
     extraReducers: (builder) => {
@@ -120,15 +65,8 @@ const authSlice = createSlice({
         builder.addCase(signUpUser.fulfilled, (state, action) => {
             state.user = action.payload
         })
-        builder.addCase(signInFetch.fulfilled, (state, action) => {
-            state.user = action.payload
-        })  
-        builder.addCase(signUpFetch.fulfilled, (state, action) => {
-            state.user = action.payload
-        })          
     }
-
 })
 
-export const {setAuthMode} = authSlice.actions
+export const {setAuthMode, signOutUser} = authSlice.actions
 export default authSlice.reducer
